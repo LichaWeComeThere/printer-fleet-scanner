@@ -1,0 +1,27 @@
+# Scan output (real inventory data - never commit)
+fleet_printers.csv
+fleet_log.txt
+fleet_state.txt
+fleet_seed.csv
+*.csv.tmp
+
+*_watch_*
+*_printer_scan_*
+
+# Reports, archives, console captures
+*.xlsx
+*.xls
+*.zip
+*.7z
+Terminal*.txt
+Ternimal*.txt
+Records/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+
+# keep the fake samples
+!samples/fleet_printers.csv
+!samples/fleet_log.txt

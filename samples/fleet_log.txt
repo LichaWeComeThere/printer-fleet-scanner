@@ -1,0 +1,22 @@
+2025-06-09 07:41:08  START   Scan-PrinterFleet v1.2 RESUMED (pass 6, 0% in) at 2025-06-09 07:41:08; continuing with the 20 printers already in fleet_printers.csv
+2025-06-09 07:41:08  LOCAL   this PC is on 192.168.10.57 (192.168.10.0/24, 256 addresses). Ping + ARP (MAC) covers those addresses; everywhere else a printer is identified by its SNMP reply.
+2025-06-09 07:41:08  PLAN    every pass: 512 subnets / 130,048 addresses (192.168.0.0/16, 10.0.0.0/16); every reply that is a printer is logged; non-printers are ignored
+2025-06-09 07:41:08  PLAN    rate 20 packets/s -> about 1.8 h per pass; known printers re-checked every 60 min and at the end of each pass. Stop: runs until you press Q. Press Q to stop cleanly (Ctrl+C also works).
+2025-06-09 07:41:08  FILES   fleet_printers.csv (one row per printer), fleet_log.txt (events). Updated every few minutes - open COPIES in Excel, Excel locks the file.
+2025-06-09 07:41:12  NETWORK startup check: none of the 20 known printers answered - the laptop has probably lost its network connection (check the cable / ipconfig). Statuses left unchanged; the sweep is paused until replies come back.
+2025-06-09 07:41:12  PASS    7 starting (130,048 addresses)
+2025-06-09 07:46:15  NETWORK network retry: none of the 20 known printers answered - the laptop has probably lost its network connection (check the cable / ipconfig). Statuses left unchanged; the sweep is paused until replies come back.
+2025-06-09 07:51:19  NETWORK network retry: none of the 20 known printers answered - the laptop has probably lost its network connection (check the cable / ipconfig). Statuses left unchanged; the sweep is paused until replies come back.
+2025-06-09 07:56:22  NETWORK network retry: none of the 20 known printers answered - the laptop has probably lost its network connection (check the cable / ipconfig). Statuses left unchanged; the sweep is paused until replies come back.
+2025-06-09 09:32:29  NETWORK replies are back (16 printers answered) - resuming the sweep
+2025-06-09 09:32:29  BACK    1 printers answering again
+2025-06-09 09:32:29  GONE    KRB226590   Xerox(R) B410 Printer                    at 192.168.30.25 stopped answering (last seen 2025-06-06 16:42:10)
+2025-06-09 09:32:29  CHECK   network retry: 20 known printers re-checked - 16 active, 2 missed once, 2 not answering (1 newly gone)
+2025-06-09 09:39:18  NEW     GDX418275   Xerox VersaLink C415 Color Multifunction Printer at 192.168.20.31   MAC E8-4D-EC-6A-21-04 pages 18452
+2025-06-09 09:39:18  NEW     GDX418302   Xerox VersaLink C415 Color Multifunction Printer at 192.168.20.32   MAC E8-4D-EC-6A-21-3F pages 312
+2025-06-09 09:39:18  NEW     KRB227164   Xerox(R) B410 Printer                    at 192.168.30.14   MAC E8-4D-EC-71-0C-88 pages 3388
+2025-06-09 09:42:43  NEW     MXT503319   Xerox VersaLink B605 S Multifunction Printer at 192.168.40.21   MAC 9C-93-4E-3D-72-A5 pages 284113
+2025-06-09 10:30:29  MOVED   RTB114207   Xerox AltaLink C8145 Multifunction Printer 192.168.12.40 -> 10.0.12.40
+2025-06-09 10:33:54  NEW     PHBDT7K1QZ  HP LaserJet M507                         at 10.0.22.40      MAC 3C-52-82-9A-44-17 pages 61204
+2025-06-09 10:33:54  NEW     MAC 00-07-4D-B2-19-6C Zebra Technologies ZD620                 at 10.0.25.18      MAC 00-07-4D-B2-19-6C pages 
+2025-06-09 10:33:54  NEW     U64212J1N   Brother HL-L6210DW series                at 10.0.30.15      MAC 30-05-5C-7E-21-9A pages 22371
