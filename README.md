@@ -13,9 +13,9 @@ A single PowerShell script that sweeps an entire corporate network with read-onl
 
 ## Why I built it
 
-Managed-print billing depends on a monthly meter read from every printer. On the ~1,100-printer healthcare network I supported, the fleet-management agent lost track of dozens of devices every month: printers moved to a new VLAN, reinstalled, or pulled from the warehouse and put back into service without anyone updating the record. The monthly "missing meters" list had stale IPs, so each one had to be chased by hand.
+I work at Acordis as a printer technician assigned to a large children's hospital in Miami, with roughly 1,100 networked printers. Every month we have to collect a meter read (page count) from every printer for billing. Our fleet-management software is supposed to find each printer and pull the meter automatically, but it keys on the printer's IP and hostname. When a printer gets swapped, moved to another floor, or lands on a new VLAN, its IP changes, the software loses it, and the printer shows up on the monthly "missing meters" list. Then someone has to go find it by hand.
 
-This script walks every address in the network, over and over, and logs every printer it finds, when a printer moves, and when one stops answering. Matching a missing-meter list against its output takes minutes instead of days.
+I built this tool to do that search for me. It tries every IP address on the network, one by one, and logs every printer that answers with its serial number, MAC address, model, current IP and page count. Because it keys on the serial instead of the IP, it recognizes a printer that has moved and records the new address. That gives me the new IPs to update in our reporting software and the meters I need for the monthly report, without walking the building.
 
 In its first month in production it located 41 of the 124 printers on the missing list, including an entire building wing that had moved subnets and three printers still recorded as "in the warehouse" that were installed and printing.
 
@@ -117,7 +117,7 @@ An early version marked about a thousand printers `GONE` when the laptop's Wi-Fi
 
 ## Results in production
 
-Ran almost continuously for five weeks on a ~1,100-printer healthcare network: 62 full passes, 1,138 printer records (895 office printers, 243 Zebra label printers). Spot-checked against the fleet-management console and against 33 meters read by hand: 16 matched exactly, 4 were higher by hand because the printers had printed in between, and the rest differed by a handful of pages because some HP models expose a different counter over SNMP than on their usage page.
+Ran almost continuously for five weeks on the hospital's ~1,100-printer network: 62 full passes, 1,138 printer records (895 office printers, 243 Zebra label printers). Spot-checked against the fleet-management console and against 33 meters read by hand: 16 matched exactly, 4 were higher by hand because the printers had printed in between, and the rest differed by a handful of pages because some HP models expose a different counter over SNMP than on their usage page.
 
 ## Known limitations
 
